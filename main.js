@@ -97,7 +97,7 @@ const ducks = [
     }
 ];
 
-console.log(ducks);
+
 
 const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.getElementById(divId);
@@ -110,19 +110,72 @@ const duckPrinter = (duckArr) => {
     domString += `<div class="col-md-6 col-lg-4 card-separation">`;
     domString += `<div class="card">`;
     domString += `<img src=${duckArr[i].imgUrl} class="card-img-top" alt="...">`;
-    domString += '<div class="card-body">';
-    domString += `<h5 class="card-title">${duckArr[i].name}</h5>`;
-    domString += `<p class="card-text">${duckArr[i].socialStatus}</p>`;
-    domString += `<p class="card-text">${duckArr[i].diet}</p>`;
-    domString += '</div>';
+    domString +=    '<div class="card-body">';
+    domString +=        `<h5 class="card-title">${duckArr[i].name}</h5>`;
+    domString +=        `<p class="card-text">${duckArr[i].socialStatus}</p>`;
+    domString +=        `<p class="card-text">${duckArr[i].diet}</p>`;
+    domString +=    '</div>';
     domString += '</div>';     
     domString += '</div>';
     }
 
     printToDom('ponds', domString);
 };
+const choseColor = (e) =>{
+    const buttonId = e.target.id;
+    const selectedDucks = [];
+    for(let i=0; i<ducks.length; i++){
+        if(ducks[i].color === buttonId){
+            selectedDucks.push(ducks[i]);
+        }
+    }
+    duckPrinter(selectedDucks);
+};
+
+
+const choseGender = (e) =>{
+    const buttonId = e.target.id;
+    const selectedDucks = [];
+    for(let i=0; i<ducks.length; i++){
+        if(ducks[i].gender === buttonId){
+            selectedDucks.push(ducks[i]);
+        }
+    }
+    duckPrinter(selectedDucks);
+
+};
+
+const choseRubber = (e) =>{
+    const selectedDucks = [];
+    for(let i=0; i<ducks.length; i++){
+        if(ducks[i].isRubber){
+            selectedDucks.push(ducks[i]);
+        }
+    }
+    duckPrinter(selectedDucks);
+};
+
+
+
+
+
+
+const events = () => {
+
+document.getElementById('blue').addEventListener('click', choseColor);
+document.getElementById('white').addEventListener('click', choseColor);
+document.getElementById('yellow').addEventListener('click', choseColor);
+document.getElementById('male').addEventListener('click', choseGender);
+document.getElementById('female').addEventListener('click', choseGender);
+document.getElementById('rubber').addEventListener('click', choseRubber);
+
+};
+
+
 const init = () => {
     duckPrinter(ducks);
+    events();
+
 };
 
 init();

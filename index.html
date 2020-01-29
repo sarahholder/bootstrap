@@ -11,7 +11,25 @@
 </head>
 <body>
     <h1>Ducks, Ducks and More Ducks</h1>
-    <button class="btn btn-danger">DANGER DUCKS</button>
+<div class="row" >
+    <div class="col-4">
+    <button id="white" class="btn btn-light">WHITE DUCKS</button>
+    <button id="yellow" class="btn btn-warning">Yellow Ducks</button>
+    <button id="blue" class="btn btn-primary">Sad Ducks</button>
+    </div>
+    <div class="col-4">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button id="male" type="button" class="btn btn-secondary">male</button>
+        <button id="female" type="button" class="btn btn-secondary">female</button>
+    </div>
+    </div>
+    <div>
+        <button id="rubber" type="btn btn-danger">Rubber?</button>
+    </div>    
+</div>
+
+
+
     <div id="ponds" class="d-flex flex-wrap"></div>
     <script src="./main.js"></script>
 
