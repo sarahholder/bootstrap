@@ -4,9 +4,9 @@ const ducks = [
         isRubber: true,
         gender: 'female',
         isMigrator: true,
-        socialStatus: 'ready to mingle',
-        diet: 'vegan',
-        age: 47, 
+        socialStatus: 'looking for friends',
+        diet: 'bubbles',
+        age: 12, 
         featherNum: 0,
         name: 'Regina',
         imgUrl: 'https://toppng.com/uploads/preview/blue-rubber-duck-11563236196ld4tpdeogb.png',
@@ -17,8 +17,8 @@ const ducks = [
         gender: 'female',
         isMigrator: true,
         socialStatus: 'ready to mingle',
-        diet: 'vegan',
-        age: 47, 
+        diet: 'frogs',
+        age: 34, 
         featherNum: 0,
         name: 'Lois',
         imgUrl: 'https://p7.hiclipart.com/preview/107/467/622/domestic-goose-duck-feather-big-white-goose-farm.jpg'
@@ -41,8 +41,8 @@ const ducks = [
         gender: 'male',
         isMigrator: true,
         socialStatus: 'ready to mingle',
-        diet: 'vegan',
-        age: 47, 
+        diet: 'grass only',
+        age: 50, 
         featherNum: 0,
         name: 'Sunshine',
         imgUrl: 'https://i.pinimg.com/originals/9d/bd/20/9dbd20a1dd70777335479fa4118ead27.jpg',
@@ -52,11 +52,11 @@ const ducks = [
         isRubber: true,
         gender: 'male',
         isMigrator: true,
-        socialStatus: 'ready to mingle',
-        diet: 'vegan',
-        age: 47, 
+        socialStatus: 'ready to rule',
+        diet: 'married',
+        age: 30, 
         featherNum: 0,
-        name: 'Bob',
+        name: 'Don',
         imgUrl: 'https://shop.r10s.jp/stab-blue/cabinet/05851142/imgrc0092164782.jpg',
     },
     {
@@ -65,8 +65,8 @@ const ducks = [
         gender: 'male',
         isMigrator: true,
         socialStatus: 'ready to mingle',
-        diet: 'vegan',
-        age: 47, 
+        diet: 'donuts',
+        age: 25, 
         featherNum: 0,
         name: 'Ted',
         imgUrl: 'https://us.123rf.com/450wm/gumpapa/gumpapa1510/gumpapa151000033/47332942-white-duck-stand-next-to-a-pond-or-lake-with-bokeh-background.jpg?ver=6',
@@ -76,7 +76,7 @@ const ducks = [
         isRubber: true,
         gender: 'male',
         isMigrator: true,
-        socialStatus: 'ready to mingle',
+        socialStatus: 'unsure',
         diet: 'vegan',
         age: 47, 
         featherNum: 0,
@@ -88,8 +88,8 @@ const ducks = [
         isRubber: false,
         gender: 'male',
         isMigrator: true,
-        socialStatus: 'ready to mingle',
-        diet: 'vegan',
+        socialStatus: 'taken',
+        diet: 'birdseed',
         age: 47, 
         featherNum: 0,
         name: 'Rick',
@@ -97,5 +97,36 @@ const ducks = [
     }
 ];
 
-console.log(ducks)
+console.log(ducks);
+
+const printToDom = (divId, textToPrint) => {
+    const selectedDiv = document.getElementById(divId);
+    selectedDiv.innerHTML = textToPrint;  
+};
+
+const duckPrinter = (duckArr) => {
+    let domString = '';
+    for(let i=0; i < duckArr.length; i++){
+    domString += `<div class="col-md-6 col-lg-4 card-separation">`;
+    domString += `<div class="card">`;
+    domString += `<img src=${duckArr[i].imgUrl} class="card-img-top" alt="...">`;
+    domString += '<div class="card-body">';
+    domString += `<h5 class="card-title">${duckArr[i].name}</h5>`;
+    domString += `<p class="card-text">${duckArr[i].socialStatus}</p>`;
+    domString += `<p class="card-text">${duckArr[i].diet}</p>`;
+    domString += '</div>';
+    domString += '</div>';     
+    domString += '</div>';
+    }
+
+    printToDom('ponds', domString);
+};
+const init = () => {
+    duckPrinter(ducks);
+};
+
+init();
+
+
+
 

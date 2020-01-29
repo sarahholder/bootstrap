@@ -1,3 +1,6 @@
 body{
     background-color: bisque;
 }
+.card-separation{
+        margin: 15px 0;
+}
