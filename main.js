@@ -155,11 +155,6 @@ const choseRubber = (e) =>{
     duckPrinter(selectedDucks);
 };
 
-
-
-
-
-
 const events = () => {
 
 document.getElementById('blue').addEventListener('click', choseColor);
